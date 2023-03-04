@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] BoxCollider2D feetCollider;
     [SerializeField] SpriteRenderer mySprite;
+    [SerializeField] Animator myAnim;
 
+    public InputAction playerControls;
     public bool isGrounded;
     public float runSpeed;
     public float jumpSpeed;
@@ -36,11 +39,13 @@ public class Player : MonoBehaviour
     }
 
     void Run() {
-        if (isGrounded) { //running anim
-            
-        }
-
         float controlThrow = Input.GetAxisRaw("Horizontal");
+
+        if (isGrounded && controlThrow != 0f) { //running anim
+            myAnim.SetBool("isWalking", true);
+        } else {
+            myAnim.SetBool("isWalking", false);
+        }
 
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             if (controlThrow > 0.5f) {
@@ -61,9 +66,8 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetButtonUp("Jump")) {
-            Debug.Log("bleh");
-            Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed / 3f);
-            myRB.velocity -= jumpVelocityToAdd;
+            Vector2 jumpVelocityToSub = new Vector2(0f, jumpSpeed / 3f);
+            myRB.velocity -= jumpVelocityToSub;
         }
     }
 }
