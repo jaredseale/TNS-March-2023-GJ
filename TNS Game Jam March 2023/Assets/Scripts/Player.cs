@@ -6,16 +6,22 @@ using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Shield shield;
     [SerializeField] BoxCollider2D feetCollider;
+    [SerializeField] GameObject spriteObject;
     [SerializeField] SpriteRenderer mySprite;
     [SerializeField] Animator myAnim;
+    [SerializeField] GameObject thrownShieldPrefab;
 
     public InputMaster playerControls;
     public bool isGrounded;
+    public float playerSpeed;
     public float runSpeed;
+    public float shieldingRunSpeed;
     public float jumpSpeed;
     public float throwTimer;
     public float throwThreshold;
+    public bool shielding;
 
     Rigidbody2D myRB;
     BoxCollider2D bodyCollider;
@@ -84,13 +90,19 @@ public class Player : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<BoxCollider2D>();
+        shield.beingCarried = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
-        //Jump();
+
+        if (shielding) {
+            playerSpeed = shieldingRunSpeed;
+        } else {
+            playerSpeed = runSpeed;
+        }
 
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             isGrounded = true;
@@ -112,15 +124,15 @@ public class Player : MonoBehaviour
         }
 
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
-            if (moveDirection.x > 0.5f) {
-                mySprite.transform.localScale = new Vector2(1f, 1f);
-            } else if (moveDirection.x < -0.5f) {
-                mySprite.transform.localScale = new Vector2(-1f, 1f);
+            if (moveDirection.x > 0.5f && !shielding) {
+                spriteObject.transform.localScale = new Vector2(1f, 1f);
+            } else if (moveDirection.x < -0.5f && !shielding) {
+                spriteObject.transform.localScale = new Vector2(-1f, 1f);
             }
         }
 
         if (Mathf.Abs(moveDirection.x) >= 0.5f) { //artificial deadzone
-            Vector2 playerVelocity = new Vector2(moveDirection.x * runSpeed, myRB.velocity.y);
+            Vector2 playerVelocity = new Vector2(moveDirection.x * playerSpeed, myRB.velocity.y);
             myRB.velocity = playerVelocity;
         } else {
             myRB.velocity = new Vector2(0f, myRB.velocity.y);
@@ -144,28 +156,32 @@ public class Player : MonoBehaviour
 
         if (context.interaction is PressInteraction) {
             if (upAction.WasPressedThisFrame()) {
-                Debug.Log("Y pressed");
+                shielding = true;
+                HoldShield("up");
             }
 
             if (upAction.WasReleasedThisFrame()) {
-                Debug.Log("Y released");
+                shielding = false;
+                DragShield();
             }
-        }
 
-        
+        }
     }
 
     void LeftAction(InputAction.CallbackContext context) {
 
         if (leftAction.WasPressedThisFrame()) { //and has shield
             throwTimer = 0f;
-            Debug.Log("X pressed");
+            shielding = true;
+            HoldShield("left");
         }
 
         if (leftAction.WasReleasedThisFrame()) {
-            Debug.Log("X released");
+            shielding = false;
             if (throwTimer <= throwThreshold) {
-                Debug.Log("throw shield");
+                ThrowShield("left");
+            } else {
+                DragShield();
             }
         }
     }
@@ -174,13 +190,16 @@ public class Player : MonoBehaviour
 
         if (rightAction.WasPressedThisFrame()) { //and has shield
             throwTimer = 0f;
-            Debug.Log("B pressed");
+            shielding = true;
+            HoldShield("right");
         }
 
         if (rightAction.WasReleasedThisFrame()) {
-            Debug.Log("B released");
+            shielding = false;
             if (throwTimer <= throwThreshold) {
-                Debug.Log("throw shield");
+                ThrowShield("right");
+            } else {
+                DragShield();
             }
         }
     }
@@ -198,12 +217,45 @@ public class Player : MonoBehaviour
         Debug.Log("leave shield pressed");
     }
 
-    void ThrowShield() {
-    
+    void ThrowShield(string direction) {
+        switch (direction) {
+            case "left":
+                spriteObject.transform.localScale = new Vector2(-1f, 1f);
+                GameObject thrownShieldL = Instantiate(thrownShieldPrefab, gameObject.transform.position, Quaternion.identity);
+                thrownShieldL.GetComponent<Rigidbody2D>().velocity = new Vector2(-thrownShieldL.GetComponent<ThrownShield>().speed, 0f);
+                break;
+            case "right":
+                spriteObject.transform.localScale = new Vector2(1f, 1f);
+                GameObject thrownShieldR = Instantiate(thrownShieldPrefab, gameObject.transform.position, Quaternion.identity);
+                thrownShieldR.GetComponent<Rigidbody2D>().velocity = new Vector2(thrownShieldR.GetComponent<ThrownShield>().speed, 0f);
+                break;
+        }
     }
 
     void PauseGame() {
         
+    }
+
+    void HoldShield(string direction) {
+        //shield.gameObject.transform.SetParent(null);
+
+        switch (direction) {
+            case "left":
+                spriteObject.transform.localScale = new Vector2(-1f, 1f);
+                shield.HoldLeft();
+                break;
+            case "right":
+                spriteObject.transform.localScale = new Vector2(1f, 1f);
+                shield.HoldRight();
+                break;
+            case "up":
+                shield.HoldUp();
+                break;
+        }
+    }
+
+    void DragShield() {
+        shield.beingCarried = true;
     }
 
 }
