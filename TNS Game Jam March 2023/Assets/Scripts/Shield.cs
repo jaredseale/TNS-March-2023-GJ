@@ -4,28 +4,58 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-
+    [SerializeField] Player player;
     [SerializeField] GameObject thingToFollow;
     [SerializeField] Vector3 followOffset;
-    // Start is called before the first frame update
+    [SerializeField] Vector3 initOffset;
+
+    public bool beingCarried;
+
+    BoxCollider2D shieldCollider;
+
     void Start()
     {
-        followOffset = new Vector3(-2, 0, 0);
+        shieldCollider = GetComponent<BoxCollider2D>();
+        //followOffset = new Vector3(-2, 0, 0);
+        shieldCollider.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = thingToFollow.transform.position + getFollowOffset();
+        if (beingCarried && !player.shielding) {
+            shieldCollider.enabled = false;
+            followOffset = getFollowOffset();
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+        } else {
+            shieldCollider.enabled = true;
+        }
+
+        transform.position = thingToFollow.transform.position + followOffset;
     }
 
     private float getFollowedDirection() {
-        return thingToFollow.transform.GetChild(0).transform.localScale.x;
+        return thingToFollow.transform.localScale.x;
     }
 
     private Vector3 getFollowOffset() {
-        return new Vector3(followOffset.x * getFollowedDirection(), 0, 0);
+        return new Vector3(initOffset.x * getFollowedDirection(), initOffset.y, 0);
     }
 
+    public void HoldRight() {
+        gameObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
+        followOffset = new Vector2(1.75f, 0f);
+    }
 
+    public void HoldLeft() {
+        gameObject.transform.rotation = Quaternion.Euler(new Vector3 (0f, 0f, 90f));
+        followOffset = new Vector2(-1.75f, 0f);
+    }
+
+    public void HoldUp() {
+        followOffset = new Vector2(0f, 1f);
+    }
+
+    public void ResetFollowOffset() {
+        followOffset = initOffset;
+    }
 }
