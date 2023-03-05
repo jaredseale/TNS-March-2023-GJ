@@ -2,29 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     // Start is called before the first frame update
 
-
-    [SerializeField] float xSpeed;
-
+    public float xSpeed;
+    [SerializeField] float duration;
+    float timeAlive;
     void Start()
     {
+        timeAlive = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        addTime();
         transform.position = transform.position + new Vector3(xSpeed * Time.deltaTime, 0, 0);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Floor")
+        if (timeAlive >= duration)
         {
-            xSpeed = xSpeed * -1;
+            Object.Destroy(gameObject);
         }
     }
 
+    private void addTime()
+    {
+        timeAlive += Time.deltaTime;
+    }
 }
