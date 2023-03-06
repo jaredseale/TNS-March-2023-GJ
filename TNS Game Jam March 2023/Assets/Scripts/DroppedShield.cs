@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrownShield : MonoBehaviour
+public class DroppedShield : MonoBehaviour
 {
 
-    public float throwSpeed;
     public float recallSpeed;
 
     bool recalling;
@@ -17,8 +16,7 @@ public class ThrownShield : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         myRB = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<BoxCollider2D>();
         player = FindObjectOfType<Player>();
@@ -27,8 +25,7 @@ public class ThrownShield : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (recalling) {
             myRB.velocity = new Vector2(0f, 0f);
             Vector3 targetPosition = player.gameObject.transform.position;
@@ -42,14 +39,13 @@ public class ThrownShield : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Wall")) {
-            myRB.constraints = RigidbodyConstraints2D.FreezeAll;
-            myCollider.isTrigger = false;
-        }
 
-        if (other.gameObject.CompareTag("PlayerFeet")) {
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 23f);
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+            if (other.gameObject.CompareTag("PlayerFeet")) {
+                player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 23f);
+            }
         }
+        
     }
 
     public void RecallToPlayer() {
