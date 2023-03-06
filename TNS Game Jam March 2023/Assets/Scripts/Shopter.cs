@@ -27,8 +27,19 @@ public class Shopter : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Floor")
+        if (collision.gameObject.name == "Ground")
         {
+            xSpeed = xSpeed * -1;
+            float xScale = transform.localScale.x;
+            transform.localScale = new Vector3(xScale * -1, 1, 1);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Wall" || collision.gameObject.name.Contains("Shopter"))
+        {
+
             xSpeed = xSpeed * -1;
             float xScale = transform.localScale.x;
             transform.localScale = new Vector3(xScale * -1, 1, 1);
