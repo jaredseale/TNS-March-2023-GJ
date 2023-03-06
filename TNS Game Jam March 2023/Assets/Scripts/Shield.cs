@@ -22,6 +22,13 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
+
+        if (!beingCarried) {
+            GetComponent<SpriteRenderer>().enabled = false;
+        } else {
+            GetComponent<SpriteRenderer>().enabled = true;
+        }
+
         if (beingCarried && !player.shielding) {
             shieldCollider.enabled = false;
             followOffset = getFollowOffset();
