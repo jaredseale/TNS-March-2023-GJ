@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] SpriteRenderer mySprite;
     [SerializeField] Animator myAnim;
     [SerializeField] GameObject thrownShieldPrefab;
+    [SerializeField] GameObject droppedShieldPrefab;
 
     public InputMaster playerControls;
     public bool isGrounded;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     Rigidbody2D myRB;
     BoxCollider2D bodyCollider;
 
+    //controls
     Vector2 moveDirection = Vector2.zero;
     private InputAction move;
     private InputAction jump;
@@ -152,55 +154,61 @@ public class Player : MonoBehaviour
         }
     }
 
-    void UpAction(InputAction.CallbackContext context) {
+    void UpAction(InputAction.CallbackContext context) { //come back and add glide func
 
-        if (context.interaction is PressInteraction) {
-            if (upAction.WasPressedThisFrame()) {
-                shielding = true;
-                HoldShield("up");
-            }
+        if (shield.beingCarried) {
+            if (context.interaction is PressInteraction) {
+                if (upAction.WasPressedThisFrame()) {
+                    shielding = true;
+                    HoldShield("up");
+                }
 
-            if (upAction.WasReleasedThisFrame()) {
-                shielding = false;
-                DragShield();
-            }
+                if (upAction.WasReleasedThisFrame()) {
+                    shielding = false;
+                    DragShield();
+                }
 
+            } 
         }
     }
 
     void LeftAction(InputAction.CallbackContext context) {
 
-        if (leftAction.WasPressedThisFrame()) { //and has shield
-            throwTimer = 0f;
-            shielding = true;
-            HoldShield("left");
-        }
-
-        if (leftAction.WasReleasedThisFrame()) {
-            shielding = false;
-            if (throwTimer <= throwThreshold) {
-                ThrowShield("left");
-            } else {
-                DragShield();
+        if (shield.beingCarried) {
+            if (leftAction.WasPressedThisFrame()) { //and has shield
+                throwTimer = 0f;
+                shielding = true;
+                HoldShield("left");
             }
+
+            if (leftAction.WasReleasedThisFrame()) {
+                shielding = false;
+                if (throwTimer <= throwThreshold && GameObject.Find("Thrown Shield(Clone)") == null) {
+                    ThrowShield("left");
+                } else {
+                    DragShield();
+                }
+            } 
         }
     }
 
     void RightAction(InputAction.CallbackContext context) {
 
-        if (rightAction.WasPressedThisFrame()) { //and has shield
-            throwTimer = 0f;
-            shielding = true;
-            HoldShield("right");
-        }
-
-        if (rightAction.WasReleasedThisFrame()) {
-            shielding = false;
-            if (throwTimer <= throwThreshold) {
-                ThrowShield("right");
-            } else {
-                DragShield();
+        if (shield.beingCarried) {
+            if (rightAction.WasPressedThisFrame()) { //and has shield
+                throwTimer = 0f;
+                shielding = true;
+                HoldShield("right");
             }
+
+            if (rightAction.WasReleasedThisFrame()) {
+                shielding = false;
+                if (throwTimer <= throwThreshold && GameObject.Find("Thrown Shield(Clone)") == null) {
+                    ThrowShield("right");
+                } else {
+                    DragShield();
+                }
+            } 
         }
     }
 
@@ -210,24 +218,46 @@ public class Player : MonoBehaviour
     }
 
     void Recall(InputAction.CallbackContext context) {
-        Debug.Log("recall pressed");
+        if (!shield.beingCarried) {
+            ThrownShield thrownShield = FindObjectOfType<ThrownShield>();
+            if (thrownShield != null) {
+                thrownShield.RecallToPlayer();
+            }
+            
+            DroppedShield droppedShield = FindObjectOfType<DroppedShield>();
+            if (droppedShield != null) {
+                droppedShield.RecallToPlayer();
+            }
+        }
     }
 
     void LeaveShield(InputAction.CallbackContext context) {
-        Debug.Log("leave shield pressed");
+
+        if (shield.beingCarried) {
+            shield.beingCarried = false;
+
+            spriteObject.transform.localScale = new Vector2(-1f, 1f);
+            GameObject droppedShield = Instantiate(droppedShieldPrefab,
+                new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 1.5f), Quaternion.identity); 
+        }
     }
 
     void ThrowShield(string direction) {
+
+        shield.beingCarried = false;
+
         switch (direction) {
             case "left":
                 spriteObject.transform.localScale = new Vector2(-1f, 1f);
-                GameObject thrownShieldL = Instantiate(thrownShieldPrefab, gameObject.transform.position, Quaternion.identity);
-                thrownShieldL.GetComponent<Rigidbody2D>().velocity = new Vector2(-thrownShieldL.GetComponent<ThrownShield>().speed, 0f);
+                GameObject thrownShieldL = Instantiate(thrownShieldPrefab, 
+                    new Vector2(gameObject.transform.position.x - 3f, gameObject.transform.position.y - 1.5f), Quaternion.identity);
+                thrownShieldL.GetComponent<Rigidbody2D>().velocity = new Vector2(-thrownShieldL.GetComponent<ThrownShield>().throwSpeed, 0f);
                 break;
             case "right":
                 spriteObject.transform.localScale = new Vector2(1f, 1f);
-                GameObject thrownShieldR = Instantiate(thrownShieldPrefab, gameObject.transform.position, Quaternion.identity);
-                thrownShieldR.GetComponent<Rigidbody2D>().velocity = new Vector2(thrownShieldR.GetComponent<ThrownShield>().speed, 0f);
+                GameObject thrownShieldR = Instantiate(thrownShieldPrefab, 
+                    new Vector2(gameObject.transform.position.x + 3f, gameObject.transform.position.y - 1.5f), Quaternion.identity);
+                thrownShieldR.GetComponent<Rigidbody2D>().velocity = new Vector2(thrownShieldR.GetComponent<ThrownShield>().throwSpeed, 0f);
                 break;
         }
     }
