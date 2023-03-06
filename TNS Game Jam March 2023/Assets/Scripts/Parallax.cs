@@ -6,20 +6,14 @@ public class Parallax : MonoBehaviour
 {
 
     public Transform cam;
-    [SerializeField] bool horizontalParallax;
-    [SerializeField] bool verticalParallax;
+    public float relativeMove;
+    public bool lockY;
 
-    void Update()
-    {
-
-        if (verticalParallax)
-        {
-            transform.position = new Vector2(transform.position.x, 0.3f * cam.position.y);
-        }
-
-        if (horizontalParallax)
-        {
-            transform.position = new Vector2(0.3f * cam.position.x, 0.3f * transform.position.y);
+    void Update() {
+        if (lockY) {
+            transform.position = new Vector2(cam.position.x * relativeMove, transform.position.y);
+        } else {
+            transform.position = new Vector2(cam.position.x * relativeMove, cam.position.y * relativeMove);
         }
 
 
