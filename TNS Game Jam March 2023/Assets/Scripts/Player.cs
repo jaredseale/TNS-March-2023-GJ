@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] Animator myAnim;
     [SerializeField] GameObject thrownShieldPrefab;
     [SerializeField] GameObject droppedShieldPrefab;
+    [SerializeField] GameObject pauseScreen;
 
     public InputMaster playerControls;
     public bool isGrounded;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     public float throwTimer;
     public float throwThreshold;
     public bool shielding;
+    public bool gliding;
+    public bool paused;
 
     Rigidbody2D myRB;
     BoxCollider2D bodyCollider;
@@ -100,19 +103,23 @@ public class Player : MonoBehaviour
     {
         Run();
 
-        if (shielding) {
-            playerSpeed = shieldingRunSpeed;
-        } else {
-            playerSpeed = runSpeed;
-        }
-
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             isGrounded = true;
         } else {
             isGrounded = false;
         }
 
+        if (shielding && isGrounded) {
+            playerSpeed = shieldingRunSpeed;
+        } else {
+            playerSpeed = runSpeed;
+        }
+
         throwTimer += Time.deltaTime;
+
+        if (gliding && myRB.velocity.y < -5f) {
+            myRB.velocity = new Vector2(myRB.velocity.x, -5f);
+        }
     }
 
     void Run() {
@@ -156,16 +163,18 @@ public class Player : MonoBehaviour
 
     void UpAction(InputAction.CallbackContext context) { //come back and add glide func
 
-        if (shield.beingCarried) {
+        if (shield.beingCarried && !paused) {
             if (context.interaction is PressInteraction) {
                 if (upAction.WasPressedThisFrame()) {
                     shielding = true;
                     HoldShield("up");
+                    gliding = true;
                 }
 
                 if (upAction.WasReleasedThisFrame()) {
                     shielding = false;
                     DragShield();
+                    gliding = false;
                 }
 
             } 
@@ -174,7 +183,7 @@ public class Player : MonoBehaviour
 
     void LeftAction(InputAction.CallbackContext context) {
 
-        if (shield.beingCarried) {
+        if (shield.beingCarried && !paused) {
             if (leftAction.WasPressedThisFrame()) { //and has shield
                 throwTimer = 0f;
                 shielding = true;
@@ -194,7 +203,7 @@ public class Player : MonoBehaviour
 
     void RightAction(InputAction.CallbackContext context) {
 
-        if (shield.beingCarried) {
+        if (shield.beingCarried && !paused) {
             if (rightAction.WasPressedThisFrame()) { //and has shield
                 throwTimer = 0f;
                 shielding = true;
@@ -213,12 +222,11 @@ public class Player : MonoBehaviour
     }
 
     void Pause(InputAction.CallbackContext context) {
-        Debug.Log("pause pressed");
         PauseGame();
     }
 
     void Recall(InputAction.CallbackContext context) {
-        if (!shield.beingCarried) {
+        if (!shield.beingCarried && !paused) {
             ThrownShield thrownShield = FindObjectOfType<ThrownShield>();
             if (thrownShield != null) {
                 thrownShield.RecallToPlayer();
@@ -233,7 +241,7 @@ public class Player : MonoBehaviour
 
     void LeaveShield(InputAction.CallbackContext context) {
 
-        if (shield.beingCarried) {
+        if (shield.beingCarried && !paused) {
             shield.beingCarried = false;
 
             spriteObject.transform.localScale = new Vector2(-1f, 1f);
@@ -245,6 +253,7 @@ public class Player : MonoBehaviour
     void ThrowShield(string direction) {
 
         shield.beingCarried = false;
+        gliding = false;
 
         switch (direction) {
             case "left":
@@ -263,7 +272,15 @@ public class Player : MonoBehaviour
     }
 
     void PauseGame() {
-        
+        if (pauseScreen.activeSelf == false) {
+            pauseScreen.SetActive(true);
+            paused = true;
+            Time.timeScale = 0f;
+        } else {
+            pauseScreen.SetActive(false);
+            paused = false;
+            Time.timeScale = 1f;
+        }
     }
 
     void HoldShield(string direction) {
