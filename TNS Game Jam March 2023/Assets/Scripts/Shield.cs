@@ -8,6 +8,7 @@ public class Shield : MonoBehaviour
     [SerializeField] GameObject thingToFollow;
     [SerializeField] Vector3 followOffset;
     [SerializeField] Vector3 initOffset;
+    [SerializeField] Vector3 initRotation;
 
     public bool beingCarried;
 
@@ -32,7 +33,13 @@ public class Shield : MonoBehaviour
         if (beingCarried && !player.shielding) {
             shieldCollider.enabled = false;
             followOffset = getFollowOffset();
-            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+
+            if (thingToFollow.transform.localScale.x > 0) { //flip the rotation depending on which way the player is facing
+                gameObject.transform.rotation = Quaternion.Euler(initRotation);
+            } else {
+                gameObject.transform.rotation = Quaternion.Euler(initRotation.x, initRotation.y, -initRotation.z);
+            }
+            
         } else {
             shieldCollider.enabled = true;
         }
@@ -49,17 +56,18 @@ public class Shield : MonoBehaviour
     }
 
     public void HoldRight() {
-        gameObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
-        followOffset = new Vector2(1.75f, 0f);
+        gameObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 270f));
+        followOffset = new Vector2(1.6f, 0f);
     }
 
     public void HoldLeft() {
         gameObject.transform.rotation = Quaternion.Euler(new Vector3 (0f, 0f, 90f));
-        followOffset = new Vector2(-1.75f, 0f);
+        followOffset = new Vector2(-1.6f, 0f);
     }
 
     public void HoldUp() {
-        followOffset = new Vector2(0f, 1f);
+        followOffset = new Vector2(-0.05f, 0.3f);
+        gameObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
     }
 
     public void ResetFollowOffset() {

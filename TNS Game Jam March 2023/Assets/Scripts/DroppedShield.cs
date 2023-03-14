@@ -43,6 +43,8 @@ public class DroppedShield : MonoBehaviour
         if (myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             if (other.gameObject.CompareTag("PlayerFeet")) {
                 player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 23f);
+                player.spriteObject.GetComponent<Animator>().SetTrigger("jump");
+                player.isGrounded = false;
             }
         }
         
