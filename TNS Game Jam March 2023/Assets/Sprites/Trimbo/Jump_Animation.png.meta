@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4290a1929dde0943b8be8a7ed2b6c5a
+guid: c8a4efe884b59714a900ea692f80febf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,76 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trimbo_walk_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e40831e1d0b7f8a44a599e255d5b1b60
-      internalID: 2092818570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trimbo_walk_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20aea7ae7f0383a4597ffa9467384fb9
-      internalID: 1228010778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trimbo_walk_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58ae6b6d666cbb94f8f8fe5fdd32260b
-      internalID: 796002489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trimbo_walk_3
+      name: Jump_Animation_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 33
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,8 +133,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d8087d65653bfc4b9b723d94913d1ae
-      internalID: -1347998080
+      spriteID: e333b2e06dfc2d5488e0639fa13f453f
+      internalID: 1358758978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc2c3568c329534cb5016e8a8ef6956
+      internalID: 657921065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4272d81a0bbf22418b1c0d01e0c12ac
+      internalID: -983898190
       vertices: []
       indices: 
       edges: []
@@ -213,10 +192,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trimbo_walk_0: 2092818570
-      trimbo_walk_1: 1228010778
-      trimbo_walk_2: 796002489
-      trimbo_walk_3: -1347998080
+      Jump_Animation_0: 1358758978
+      Jump_Animation_1: 657921065
+      Jump_Animation_2: -983898190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

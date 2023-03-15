@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Shield shield;
     [SerializeField] BoxCollider2D feetCollider;
-    [SerializeField] GameObject spriteObject;
+    public GameObject spriteObject;
     [SerializeField] SpriteRenderer mySprite;
     [SerializeField] Animator myAnim;
     [SerializeField] GameObject thrownShieldPrefab;
@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<BoxCollider2D>();
         shield.beingCarried = true;
+        myAnim.SetBool("draggingShield", true);
     }
 
     // Update is called once per frame
@@ -105,8 +106,10 @@ public class Player : MonoBehaviour
 
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             isGrounded = true;
+            myAnim.SetBool("grounded", true);
         } else {
             isGrounded = false;
+            myAnim.SetBool("grounded", false);
         }
 
         if (shielding && isGrounded) {
@@ -153,6 +156,11 @@ public class Player : MonoBehaviour
     void Jump(InputAction.CallbackContext context) {
         if (isGrounded) {
             myRB.velocity = new Vector2(myRB.velocity.x, jumpSpeed);
+
+            if (myAnim.GetBool("draggingShield") ==  false) {
+                myAnim.SetTrigger("jump");
+            }
+            
         }
 
         if (jump.WasReleasedThisFrame()) {
@@ -161,18 +169,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    void UpAction(InputAction.CallbackContext context) { //come back and add glide func
+    void UpAction(InputAction.CallbackContext context) {
 
         if (shield.beingCarried && !paused) {
             if (context.interaction is PressInteraction) {
                 if (upAction.WasPressedThisFrame()) {
                     shielding = true;
+                    myAnim.SetBool("blockingAbove", true);
                     HoldShield("up");
                     gliding = true;
                 }
 
                 if (upAction.WasReleasedThisFrame()) {
                     shielding = false;
+                    myAnim.SetBool("blockingAbove", false);
                     DragShield();
                     gliding = false;
                 }
@@ -187,15 +197,21 @@ public class Player : MonoBehaviour
             if (leftAction.WasPressedThisFrame()) { //and has shield
                 throwTimer = 0f;
                 shielding = true;
+                myAnim.SetBool("blocking", true);
                 HoldShield("left");
             }
 
             if (leftAction.WasReleasedThisFrame()) {
                 shielding = false;
+                myAnim.SetBool("blocking", false);
+                myAnim.SetBool("blockingAbove", false);
+                myAnim.SetBool("draggingShield", false);
                 if (throwTimer <= throwThreshold && GameObject.Find("Thrown Shield(Clone)") == null) {
                     ThrowShield("left");
+                    myAnim.SetTrigger("throwShield");
                 } else {
                     DragShield();
+                    myAnim.SetBool("draggingShield", true);
                 }
             } 
         }
@@ -207,15 +223,21 @@ public class Player : MonoBehaviour
             if (rightAction.WasPressedThisFrame()) { //and has shield
                 throwTimer = 0f;
                 shielding = true;
+                myAnim.SetBool("blocking", true);
                 HoldShield("right");
             }
 
             if (rightAction.WasReleasedThisFrame()) {
                 shielding = false;
+                myAnim.SetBool("blocking", false);
+                myAnim.SetBool("blockingAbove", false);
+                myAnim.SetBool("draggingShield", false);
                 if (throwTimer <= throwThreshold && GameObject.Find("Thrown Shield(Clone)") == null) {
                     ThrowShield("right");
+                    myAnim.SetTrigger("throwShield");
                 } else {
                     DragShield();
+                    myAnim.SetBool("draggingShield", true);
                 }
             } 
         }
@@ -226,7 +248,9 @@ public class Player : MonoBehaviour
     }
 
     void Recall(InputAction.CallbackContext context) {
+
         if (!shield.beingCarried && !paused) {
+
             ThrownShield thrownShield = FindObjectOfType<ThrownShield>();
             if (thrownShield != null) {
                 thrownShield.RecallToPlayer();
@@ -236,6 +260,8 @@ public class Player : MonoBehaviour
             if (droppedShield != null) {
                 droppedShield.RecallToPlayer();
             }
+
+            myAnim.SetBool("draggingShield", true);
         }
     }
 
@@ -243,6 +269,7 @@ public class Player : MonoBehaviour
 
         if (shield.beingCarried && !paused) {
             shield.beingCarried = false;
+            myAnim.SetBool("draggingShield", false);
 
             spriteObject.transform.localScale = new Vector2(-1f, 1f);
             GameObject droppedShield = Instantiate(droppedShieldPrefab,
@@ -284,7 +311,6 @@ public class Player : MonoBehaviour
     }
 
     void HoldShield(string direction) {
-        //shield.gameObject.transform.SetParent(null);
 
         switch (direction) {
             case "left":
