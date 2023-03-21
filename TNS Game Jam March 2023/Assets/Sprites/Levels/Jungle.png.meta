@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,8 +69,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -133,8 +133,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb0564250e377f842b57754cd157004e
-      internalID: -847339428
+      spriteID: e6cedcf00f6fc4646900cbe83d286039
+      internalID: 609186187
       vertices: []
       indices: 
       edges: []
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bef0f429213157b4ebe55c93e5933888
-      internalID: 252850149
+      spriteID: f6b7cc914545c76438bd9eea73df1281
+      internalID: -178978465
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44f341cd1eb1f904d9c5b6667abc5c09
-      internalID: 164697275
+      spriteID: bddbabb35ffd34540a8351bb1329e16c
+      internalID: -1472511509
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dd469b0001c1cd4da18008f3d2716aa
-      internalID: -1526765892
+      spriteID: e43720f4a5f801d42bf80559de15b6bb
+      internalID: 479905627
       vertices: []
       indices: 
       edges: []
@@ -217,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf34e06f20db18943911ef5ac8b35645
-      internalID: -884895059
+      spriteID: af322d9e91805454a844b47bb3df8c52
+      internalID: -24311846
       vertices: []
       indices: 
       edges: []
@@ -238,8 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b12dd1b120cefe4e92af21b1b581e59
-      internalID: 1269103510
+      spriteID: 3b5839ff2297ba647bd96a1fbeaa9f63
+      internalID: -1325687387
       vertices: []
       indices: 
       edges: []
@@ -259,8 +259,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae3cdd4865a5d4148b7cbea57d96253a
-      internalID: -1802291397
+      spriteID: 1216783a01ec9a54eb15d0f905466e82
+      internalID: 705001771
       vertices: []
       indices: 
       edges: []
@@ -280,8 +280,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ee5c31855fa79148a4b2208451239fa
-      internalID: -1317107236
+      spriteID: d6a0930ef7464d641adcd4401526e7dc
+      internalID: -10119934
       vertices: []
       indices: 
       edges: []
@@ -301,8 +301,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4d14774cd3e4ad4ea357af4ba06f5d4
-      internalID: 1862408434
+      spriteID: 2aee29b00dde51e4aae0540d681589fc
+      internalID: -2064181714
       vertices: []
       indices: 
       edges: []
@@ -322,8 +322,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7934fbb144d3c69438688d5b60213365
-      internalID: 918969382
+      spriteID: bcb6e0d92353c6846b87ff37aa9d8101
+      internalID: -1063233783
       vertices: []
       indices: 
       edges: []
@@ -343,8 +343,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbab402efbfde9d49ad011e4330c435a
-      internalID: 1841906562
+      spriteID: 6ed202f026a081142910bebfdd0c3737
+      internalID: -632701525
       vertices: []
       indices: 
       edges: []
@@ -364,8 +364,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a833b3c43b6fdd42bd58f680cb43eef
-      internalID: 1003115197
+      spriteID: 2af39f429a4cbc943b3727038431b5ec
+      internalID: -1871694788
       vertices: []
       indices: 
       edges: []
@@ -385,8 +385,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6e68f6f8d7b6d749a533cc85b9dc32b
-      internalID: 1398261290
+      spriteID: 711f53f86c9721f4ea93b07a3ec04f04
+      internalID: -615227112
       vertices: []
       indices: 
       edges: []
@@ -406,8 +406,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd5ef13c3be8b64d90f4a58d0a0c551
-      internalID: 1139826210
+      spriteID: 0dad7ba41faf16e4b96841f12ae5d015
+      internalID: -51379748
       vertices: []
       indices: 
       edges: []
@@ -416,8 +416,8 @@ TextureImporter:
       name: Jungle_14
       rect:
         serializedVersion: 2
-        x: 119
-        y: 102
+        x: 0
+        y: 85
         width: 16
         height: 16
       alignment: 0
@@ -427,8 +427,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de76e4aafbb218a4a88d6f7d4a50a7fd
-      internalID: 1859529984
+      spriteID: 224e0a8166a0d2342ba306c23f0ab6de
+      internalID: 373827317
       vertices: []
       indices: 
       edges: []
@@ -437,7 +437,7 @@ TextureImporter:
       name: Jungle_15
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 85
         width: 16
         height: 16
@@ -448,8 +448,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e30069e8f5ff2554eb4c46c748f20cb7
-      internalID: -1914633125
+      spriteID: e07cfd08b4b6d014f84e9aedb7bbbe69
+      internalID: 1182665125
       vertices: []
       indices: 
       edges: []
@@ -458,7 +458,7 @@ TextureImporter:
       name: Jungle_16
       rect:
         serializedVersion: 2
-        x: 17
+        x: 34
         y: 85
         width: 16
         height: 16
@@ -469,8 +469,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6282073d23792a14a97017ee0deaf4ab
-      internalID: 2115463662
+      spriteID: 6581c64cd373fa34cae3322442bc7517
+      internalID: -1657476981
       vertices: []
       indices: 
       edges: []
@@ -479,7 +479,7 @@ TextureImporter:
       name: Jungle_17
       rect:
         serializedVersion: 2
-        x: 34
+        x: 51
         y: 85
         width: 16
         height: 16
@@ -490,8 +490,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 680b73157635b9549afd071d9e6b4c9a
-      internalID: 911043173
+      spriteID: 5be9ca8440831394aa20be5bd0d369da
+      internalID: 1467506898
       vertices: []
       indices: 
       edges: []
@@ -500,7 +500,7 @@ TextureImporter:
       name: Jungle_18
       rect:
         serializedVersion: 2
-        x: 51
+        x: 68
         y: 85
         width: 16
         height: 16
@@ -511,8 +511,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d8ab23c19ed42f41b7246641bf50d1a
-      internalID: 1049905341
+      spriteID: d2948bf3583ee40448aab5367642595e
+      internalID: 252017695
       vertices: []
       indices: 
       edges: []
@@ -521,7 +521,7 @@ TextureImporter:
       name: Jungle_19
       rect:
         serializedVersion: 2
-        x: 68
+        x: 85
         y: 85
         width: 16
         height: 16
@@ -532,8 +532,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c2a0b00fc87fa146bcb48fa23e0fe44
-      internalID: 20639096
+      spriteID: a42eefe05000d0b4cafd90503f284704
+      internalID: -1966114120
       vertices: []
       indices: 
       edges: []
@@ -542,8 +542,8 @@ TextureImporter:
       name: Jungle_20
       rect:
         serializedVersion: 2
-        x: 85
-        y: 85
+        x: 0
+        y: 68
         width: 16
         height: 16
       alignment: 0
@@ -553,8 +553,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea7ba6fdb422d014eb2db812340141b7
-      internalID: -1696747560
+      spriteID: 396f302b676c96b478d029a228d05a36
+      internalID: -938720896
       vertices: []
       indices: 
       edges: []
@@ -563,7 +563,7 @@ TextureImporter:
       name: Jungle_21
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 68
         width: 16
         height: 16
@@ -574,8 +574,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d6bb1e5be172db4f91aa34535808f3a
-      internalID: -712551291
+      spriteID: e839379bc8f567549b2d304d8ce6c15e
+      internalID: 1622031879
       vertices: []
       indices: 
       edges: []
@@ -584,7 +584,7 @@ TextureImporter:
       name: Jungle_22
       rect:
         serializedVersion: 2
-        x: 17
+        x: 34
         y: 68
         width: 16
         height: 16
@@ -595,8 +595,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6100e8d716d2bb4081ae817ece3dab7
-      internalID: 1063053558
+      spriteID: fb0c352b4be5fcc4989e2d1d26478551
+      internalID: -1653307448
       vertices: []
       indices: 
       edges: []
@@ -605,7 +605,7 @@ TextureImporter:
       name: Jungle_23
       rect:
         serializedVersion: 2
-        x: 34
+        x: 51
         y: 68
         width: 16
         height: 16
@@ -616,8 +616,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff996949cc29b124890a26e9f485a207
-      internalID: 1531943776
+      spriteID: 227d4b4c41d55fa4db83b4c13fc22727
+      internalID: 1368282140
       vertices: []
       indices: 
       edges: []
@@ -626,8 +626,8 @@ TextureImporter:
       name: Jungle_24
       rect:
         serializedVersion: 2
-        x: 51
-        y: 68
+        x: 0
+        y: 51
         width: 16
         height: 16
       alignment: 0
@@ -637,8 +637,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49665f7eeb367e8408981da3b75262c0
-      internalID: -1968630351
+      spriteID: b91247498804f0f47b024ecb63308095
+      internalID: -1611481062
       vertices: []
       indices: 
       edges: []
@@ -647,7 +647,7 @@ TextureImporter:
       name: Jungle_25
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 51
         width: 16
         height: 16
@@ -658,8 +658,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 065bb1b1b65667049b38b096f47bfbf4
-      internalID: -54656783
+      spriteID: 7aa089d155d5c4e489651c8b0dd139f8
+      internalID: -692621018
       vertices: []
       indices: 
       edges: []
@@ -668,7 +668,7 @@ TextureImporter:
       name: Jungle_26
       rect:
         serializedVersion: 2
-        x: 17
+        x: 34
         y: 51
         width: 16
         height: 16
@@ -679,8 +679,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d094d478991568f48a0e0f007e60a955
-      internalID: 1160058527
+      spriteID: 8860352e73131ca45a183dc610b24a32
+      internalID: 31075071
       vertices: []
       indices: 
       edges: []
@@ -689,7 +689,7 @@ TextureImporter:
       name: Jungle_27
       rect:
         serializedVersion: 2
-        x: 34
+        x: 51
         y: 51
         width: 16
         height: 16
@@ -700,8 +700,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0c572a90d755324c94c6c8e2d6eeab3
-      internalID: -1657386280
+      spriteID: b8a009d5e4e1aad4fbf707db9543bce9
+      internalID: 1752033299
       vertices: []
       indices: 
       edges: []
@@ -710,8 +710,8 @@ TextureImporter:
       name: Jungle_28
       rect:
         serializedVersion: 2
-        x: 51
-        y: 51
+        x: 34
+        y: 34
         width: 16
         height: 16
       alignment: 0
@@ -721,8 +721,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d27d06977598b914aab9f60ef2ff4b3b
-      internalID: -1905219437
+      spriteID: 1b7a2a4284cd2e041ae715ee31837550
+      internalID: -568392637
       vertices: []
       indices: 
       edges: []
@@ -731,7 +731,7 @@ TextureImporter:
       name: Jungle_29
       rect:
         serializedVersion: 2
-        x: 34
+        x: 51
         y: 34
         width: 16
         height: 16
@@ -742,8 +742,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb8f6223647c83e499298fc75d7df76b
-      internalID: 1215433113
+      spriteID: c692d643094e77a4682db0d6f303d961
+      internalID: 1231599629
       vertices: []
       indices: 
       edges: []
@@ -752,8 +752,8 @@ TextureImporter:
       name: Jungle_30
       rect:
         serializedVersion: 2
-        x: 51
-        y: 34
+        x: 0
+        y: 17
         width: 16
         height: 16
       alignment: 0
@@ -763,8 +763,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b76b85e6dfbeff4dbad15f5477feae4
-      internalID: -478329687
+      spriteID: e8c4735c0d97e1f458f08f7416074935
+      internalID: 1469421774
       vertices: []
       indices: 
       edges: []
@@ -773,7 +773,7 @@ TextureImporter:
       name: Jungle_31
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 17
         width: 16
         height: 16
@@ -784,8 +784,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8497287fc9b9dc4e9dab6e615849a1d
-      internalID: -775864297
+      spriteID: 569f3d2461c3a9541bf79d15cb237d6f
+      internalID: -1546518898
       vertices: []
       indices: 
       edges: []
@@ -794,27 +794,6 @@ TextureImporter:
       name: Jungle_32
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51a6357562501b84980570377c7627de
-      internalID: 480261021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jungle_33
-      rect:
-        serializedVersion: 2
         x: 34
         y: 17
         width: 16
@@ -826,14 +805,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf5c8aa13e677644b9feec54374960c
-      internalID: -1729706667
+      spriteID: e1c00f626abede74593e925a5cb73318
+      internalID: -76869388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_34
+      name: Jungle_33
       rect:
         serializedVersion: 2
         x: 51
@@ -847,14 +826,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 830f4af2aaf256747849757d9fdcf441
-      internalID: -1627793008
+      spriteID: 6abe7e6a5476fdf48a3565f3a64365f2
+      internalID: 501777585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_35
+      name: Jungle_34
       rect:
         serializedVersion: 2
         x: 0
@@ -868,14 +847,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33f47b3b6cd5dcc40ad3dbc1b7486bc6
-      internalID: 591106914
+      spriteID: 7dc4d217a4f019045961d4b02da34d2a
+      internalID: -499953014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_36
+      name: Jungle_35
       rect:
         serializedVersion: 2
         x: 17
@@ -889,14 +868,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31ace80b54eb8ff4ea04475931784367
-      internalID: 566095559
+      spriteID: ba713a67e50d9ab4eb7c8e622f57f02c
+      internalID: 1878035157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_37
+      name: Jungle_36
       rect:
         serializedVersion: 2
         x: 34
@@ -910,14 +889,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6553906b75d9e9a4c99e51d9fadfe8ef
-      internalID: 329289338
+      spriteID: 41d6be8a21a39b44c85bd23c510c02d7
+      internalID: 1855129471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_38
+      name: Jungle_37
       rect:
         serializedVersion: 2
         x: 51
@@ -931,14 +910,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d5e20069938af344895d0dc9678e805
-      internalID: 1069360289
+      spriteID: fe3928a36510cdd4e868c7518e97ce6f
+      internalID: 1964031003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_39
+      name: Jungle_38
       rect:
         serializedVersion: 2
         x: 68
@@ -952,14 +931,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5772985efec0fa34f955bcf720d0c812
-      internalID: -672973753
+      spriteID: cada7364f4eea884e8e1485036c50902
+      internalID: 2125599078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_40
+      name: Jungle_39
       rect:
         serializedVersion: 2
         x: 85
@@ -973,14 +952,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74b239d0b3d3c334489688bcdabf396b
-      internalID: -1833208711
+      spriteID: e7efc60d7f3378b4b9fa99ac53c0087e
+      internalID: -212964933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_41
+      name: Jungle_40
       rect:
         serializedVersion: 2
         x: 102
@@ -994,14 +973,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 962a70a21d9433649a51c39a957ea014
-      internalID: 1134750240
+      spriteID: ec96d35f29e764d41bb7769ce5f69b68
+      internalID: -998375873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jungle_42
+      name: Jungle_41
       rect:
         serializedVersion: 2
         x: 119
@@ -1015,8 +994,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce9286b1e65deaf46a770c7ea711dedf
-      internalID: -188924122
+      spriteID: b7082633915b5d7419d349e114771993
+      internalID: -1406885070
       vertices: []
       indices: 
       edges: []
@@ -1032,49 +1011,48 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jungle_0: -847339428
-      Jungle_1: 252850149
-      Jungle_10: 1841906562
-      Jungle_11: 1003115197
-      Jungle_12: 1398261290
-      Jungle_13: 1139826210
-      Jungle_14: 1859529984
-      Jungle_15: -1914633125
-      Jungle_16: 2115463662
-      Jungle_17: 911043173
-      Jungle_18: 1049905341
-      Jungle_19: 20639096
-      Jungle_2: 164697275
-      Jungle_20: -1696747560
-      Jungle_21: -712551291
-      Jungle_22: 1063053558
-      Jungle_23: 1531943776
-      Jungle_24: -1968630351
-      Jungle_25: -54656783
-      Jungle_26: 1160058527
-      Jungle_27: -1657386280
-      Jungle_28: -1905219437
-      Jungle_29: 1215433113
-      Jungle_3: -1526765892
-      Jungle_30: -478329687
-      Jungle_31: -775864297
-      Jungle_32: 480261021
-      Jungle_33: -1729706667
-      Jungle_34: -1627793008
-      Jungle_35: 591106914
-      Jungle_36: 566095559
-      Jungle_37: 329289338
-      Jungle_38: 1069360289
-      Jungle_39: -672973753
-      Jungle_4: -884895059
-      Jungle_40: -1833208711
-      Jungle_41: 1134750240
-      Jungle_42: -188924122
-      Jungle_5: 1269103510
-      Jungle_6: -1802291397
-      Jungle_7: -1317107236
-      Jungle_8: 1862408434
-      Jungle_9: 918969382
+      Jungle_0: 609186187
+      Jungle_1: -178978465
+      Jungle_10: -632701525
+      Jungle_11: -1871694788
+      Jungle_12: -615227112
+      Jungle_13: -51379748
+      Jungle_14: 373827317
+      Jungle_15: 1182665125
+      Jungle_16: -1657476981
+      Jungle_17: 1467506898
+      Jungle_18: 252017695
+      Jungle_19: -1966114120
+      Jungle_2: -1472511509
+      Jungle_20: -938720896
+      Jungle_21: 1622031879
+      Jungle_22: -1653307448
+      Jungle_23: 1368282140
+      Jungle_24: -1611481062
+      Jungle_25: -692621018
+      Jungle_26: 31075071
+      Jungle_27: 1752033299
+      Jungle_28: -568392637
+      Jungle_29: 1231599629
+      Jungle_3: 479905627
+      Jungle_30: 1469421774
+      Jungle_31: -1546518898
+      Jungle_32: -76869388
+      Jungle_33: 501777585
+      Jungle_34: -499953014
+      Jungle_35: 1878035157
+      Jungle_36: 1855129471
+      Jungle_37: 1964031003
+      Jungle_38: 2125599078
+      Jungle_39: -212964933
+      Jungle_4: -24311846
+      Jungle_40: -998375873
+      Jungle_41: -1406885070
+      Jungle_5: -1325687387
+      Jungle_6: 705001771
+      Jungle_7: -10119934
+      Jungle_8: -2064181714
+      Jungle_9: -1063233783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
